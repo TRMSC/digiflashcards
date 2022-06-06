@@ -1,0 +1,72 @@
+{
+  "name": "digiflashcards",
+  "version": "0.1.0",
+  "homepage": "https://ladigitale.dev/digiflashcards/",
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.com/ladigitale/digiflashcards.git"
+  },
+  "author": {
+    "name": "Emmanuel ZIMMERT",
+    "email": "ez@ladigitale.dev",
+    "url": "https://ladigitale.dev"
+  },
+  "license": "GNU GPLv3",
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "clipboard": "^2.0.8",
+    "core-js": "^3.20.2",
+    "destyle.css": "^2.0.0",
+    "file-saver": "^2.0.5",
+    "fitty": "^2.3.6",
+    "imagesloaded": "^5.0.0",
+    "jszip": "^3.10.0",
+    "voca": "^1.4.0",
+    "vue": "^3.2.31",
+    "vue-draggable-next": "^2.1.1",
+    "vue-i18n": "^9.1.9",
+    "vue-router": "^4.0.12"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^4.5.15",
+    "@vue/cli-plugin-eslint": "^4.5.15",
+    "@vue/cli-plugin-router": "^4.5.15",
+    "@vue/cli-service": "^4.5.15",
+    "@vue/compiler-sfc": "^3.2.27",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.0.0",
+    "eslint-plugin-vue": "^7.0.0"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "rules": {
+      "no-prototype-builtins": "off",
+      "generator-star-spacing": "off",
+      "indent": [
+        "error",
+        "tab"
+      ],
+      "no-tabs": 0,
+      "no-console": 0
+    },
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
