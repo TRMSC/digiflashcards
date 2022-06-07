@@ -1,5 +1,16 @@
 # Digiflashcards
 
+
+> __Thanks to [Emmanuel Zimmert](https://gitlab.com/ezimmert) for the great work! ⭐__  
+> __Have a look to the [original repository on GitLab](https://gitlab.com/ladigitale/digiflashcards). 🔍__  
+
+## Roadmap
+
+- German translation
+- Make the project ready for moodle
+
+## Original readme
+
 Digiflashcards est une application simple pour créer des flashcards. 
 
 Elle est publiée sous licence GNU GPLv3.
