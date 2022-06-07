@@ -1022,6 +1022,7 @@ export default {
 							this.$parent.$parent.message = this.$t('informationsIncorrectes')
 						} else if (xhr.responseText === 'serie_debloquee') {
 							this.admin = true
+							this.vue = 'editeur'
 							this.$parent.$parent.notification = this.$t('serieDebloquee')
 						}
 					} else {
@@ -1178,6 +1179,7 @@ export default {
 					if (xhr.responseText === 'session_terminee') {
 						this.fermerModaleSerie()
 						this.admin = false
+						this.vue = 'apprenant'
 						this.$parent.$parent.notification = this.$t('sessionTerminee')
 					}
 				} else {
@@ -1452,27 +1454,27 @@ export default {
 			}.bind(this), 200)
 		},
 		gererClavier (event) {
-			if (this.vue === 'apprenant' && this.onglet === 'cartes' && event.key === 'ArrowLeft') {
+			if (this.vue === 'apprenant' && this.modale === '' && this.onglet === 'cartes' && event.key === 'ArrowLeft') {
 				this.afficherCartePrecedente()
-			} else if (this.vue === 'apprenant' && this.onglet === 'cartes' && event.key === 'ArrowRight') {
+			} else if (this.vue === 'apprenant' && this.modale === '' && this.onglet === 'cartes' && event.key === 'ArrowRight') {
 				this.afficherCarteSuivante()
-			} else if (this.vue === 'apprenant' && this.onglet === 'cartes' && event.key === 'Enter') {
+			} else if (this.vue === 'apprenant' && this.modale === '' && this.onglet === 'cartes' && event.key === 'Enter') {
 				this.recto = !this.recto
-			} else if (this.vue === 'apprenant' && this.onglet === 'quiz' && event.key === 'ArrowLeft') {
+			} else if (this.vue === 'apprenant' && this.modale === '' && this.onglet === 'quiz' && event.key === 'ArrowLeft') {
 				this.afficherQuestionQuizPrecedente()
-			} else if (this.vue === 'apprenant' && this.onglet === 'quiz' && event.key === 'ArrowRight') {
+			} else if (this.vue === 'apprenant' && this.modale === '' && this.onglet === 'quiz' && event.key === 'ArrowRight') {
 				this.afficherQuestionQuizSuivante()
-			} else if (this.vue === 'apprenant' && this.onglet === 'ecrire' && event.key === 'ArrowLeft') {
+			} else if (this.vue === 'apprenant' && this.modale === '' && this.onglet === 'ecrire' && event.key === 'ArrowLeft') {
 				this.afficherQuestionEcrirePrecedente()
-			} else if (this.vue === 'apprenant' && this.onglet === 'ecrire' && event.key === 'ArrowRight') {
+			} else if (this.vue === 'apprenant' && this.modale === '' && this.onglet === 'ecrire' && event.key === 'ArrowRight') {
 				this.afficherQuestionEcrireSuivante()
-			} else if (this.vue === 'apprenant' && this.onglet === 'cartes' && event.key === 'Tab') {
+			} else if (this.vue === 'apprenant' && this.modale === '' && this.onglet === 'cartes' && event.key === 'Tab') {
 				event.preventDefault()
 				this.definirOnglet('quiz')
-			} else if (this.vue === 'apprenant' && this.onglet === 'quiz' && event.key === 'Tab') {
+			} else if (this.vue === 'apprenant' && this.modale === '' && this.onglet === 'quiz' && event.key === 'Tab') {
 				event.preventDefault()
 				this.definirOnglet('ecrire')
-			} else if (this.vue === 'apprenant' && this.onglet === 'ecrire' && event.key === 'Tab') {
+			} else if (this.vue === 'apprenant' && this.modale === '' && this.onglet === 'ecrire' && event.key === 'Tab') {
 				event.preventDefault()
 				this.definirOnglet('cartes')
 			}
@@ -1737,12 +1739,14 @@ export default {
 #cartes.apprenant .carte .conteneur-image {
 	display: block;
 	width: 100%;
+	height: 100%;
 	margin-right: 0;
 }
 
 #cartes.apprenant .carte .conteneur-image.avec-texte {
 	display: block;
 	width: calc(30% - 20px);
+	height: 100%;
 	margin-right: 20px;
 }
 
@@ -2367,6 +2371,13 @@ export default {
 	font-size: 0;
 }
 
+@media screen and (max-width: 399px) {
+	#exercices .reponses .reponse {
+		width: 100%;
+		margin-right: 0;
+	}
+}
+
 @media screen and (max-width: 599px) {
 	#cartes.apprenant .carte .recto,
 	#cartes.apprenant .carte .verso {
@@ -2420,7 +2431,7 @@ export default {
 	#exercices .champ input[type="text"],
 	#exercices .conteneur-coche .texte,
 	#exercices .question .texte {
-		font-size: 18px;
+		font-size: 18px!important;
 	}
 
 	#ajouter-carte {
@@ -2436,7 +2447,7 @@ export default {
 	#exercices .champ input[type="text"],
 	#exercices .conteneur-coche .texte,
 	#exercices .question .texte {
-		font-size: 20px;
+		font-size: 20px!important;
 	}
 
 	.modale .langue span {
